@@ -15,7 +15,12 @@
 			    <tr>
 			      <td><%= product.name %></td>
 			      <td><%= product.price %></td>
-			      <td class="text-center"><%= product.category_ids  %></td>
+
+			      <td>
+                     <% product.categories.each do |category| %>                         
+                         <%= category.name %>                         
+                     <% end %>
+                 </td>			      
 			    </tr>
 			    <% end %>
 			  </tbody>

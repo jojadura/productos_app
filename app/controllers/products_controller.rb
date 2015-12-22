@@ -9,6 +9,11 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)        
+    params[:product][:category_ids].each do |check|
+      category = Category.find(check)
+      @product.categories.push(category)
+    end
+
     if @product.save
        redirect_to products_path
     else
